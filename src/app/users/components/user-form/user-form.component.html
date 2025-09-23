@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="card">
+    <h2>Cadastrar Usuário</h2>
+
+    <div *ngIf="successMessage" class="success">{{ successMessage }}</div>
+    <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
+
+    <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="name" class="form-label">Nome *</label>
+        <input type="text" id="name" formControlName="name" class="form-control" [class.is-invalid]="name?.invalid && name?.touched" placeholder="Digite o nome completo" />
+        <div *ngIf="name?.invalid && name?.touched" class="error">
+          <div *ngIf="name?.errors?.['required']">Nome é obrigatório</div>
+          <div *ngIf="name?.errors?.['minlength']">Nome deve ter pelo menos 2 caracteres</div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="email" class="form-label">E-mail *</label>
+        <input type="email" id="email" formControlName="email" class="form-control" [class.is-invalid]="email?.invalid && email?.touched" placeholder="Digite o e-mail" />
+        <div *ngIf="email?.invalid && email?.touched" class="error">
+          <div *ngIf="email?.errors?.['required']">E-mail é obrigatório</div>
+          <div *ngIf="email?.errors?.['email']">E-mail deve ter um formato válido</div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary" [disabled]="isSubmitting">{{ isSubmitting ? 'Cadastrando...' : 'Cadastrar Usuário' }}</button>
+        <button type="button" class="btn btn-secondary" style="margin-left: 10px;" (click)="router.navigate(['/users'])">Ver Lista de Usuários</button>
+      </div>
+    </form>
+  </div>
+</div>

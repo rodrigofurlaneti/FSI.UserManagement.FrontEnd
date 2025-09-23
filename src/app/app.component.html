@@ -1,0 +1,10 @@
+<nav class="navbar">
+  <div class="container">
+    <a routerLink="/" class="navbar-brand">{{ title }}</a>
+    <ul class="navbar-nav">
+      <li><a routerLink="/users" routerLinkActive="active">Lista de Usuários</a></li>
+      <li><a routerLink="/users/create" routerLinkActive="active">Cadastrar Usuário</a></li>
+    </ul>
+  </div>
+</nav>
+<main><router-outlet></router-outlet></main>
