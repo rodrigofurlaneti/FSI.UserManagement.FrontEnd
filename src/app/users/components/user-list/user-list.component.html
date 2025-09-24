@@ -2,7 +2,7 @@
   <div class="card">
     <div class="header">
       <h2>Lista de Usuários</h2>
-      <button class="btn btn-primary" (click)="navigateToCreateUser()">Cadastrar Novo Usuário</button>
+      <button class="btn btn-primary" (click)="openAddUserModal()">Cadastrar Novo Usuário</button>
     </div>
 
     <div *ngIf="errorMessage" class="error">
@@ -15,7 +15,7 @@
     <div *ngIf="!isLoading && !errorMessage">
       <div *ngIf="users.length === 0" class="no-users">
         <p>Nenhum usuário cadastrado ainda.</p>
-        <button class="btn btn-primary" (click)="navigateToCreateUser()">Cadastrar Primeiro Usuário</button>
+        <button class="btn btn-primary" (click)="openAddUserModal()">Cadastrar Primeiro Usuário</button>
       </div>
 
       <div *ngIf="users.length > 0">
